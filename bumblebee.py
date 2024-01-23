@@ -11,7 +11,7 @@ def convert_to_speech(text):
 
 # Function to fetch song lyrics
 def get_song_lyrics(artist, title):
-    genius = lyricsgenius.Genius("YOUR_GENIUS_API_KEY")  # Replace with your Genius API key
+    genius = lyricsgenius.Genius("lxojx_fn2DloRib9nAPe1NdBFeh3u_PYNoQIAdLenEULcd258IuB2GvtKPsjXGLmPcJpUeKTiuJPqtLSzpUV9Q")  # Replace with your Genius API key
     song = genius.search_song(title, artist)
     return song.lyrics if song else None
 
