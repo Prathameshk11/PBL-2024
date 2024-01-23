@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Object Detection</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+        }
+        #video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+        }
+        #video {
+            width: 100%;
+            height: auto;
+        }
+        #detections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 20px;
+            color: white;
+        }
+        #scan-button {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video" autoplay playsinline muted></video>
+        <div id="detections"></div>
+        <button id="scan-button" onclick="startDetection()">Scan</button>
+    </div>
+
+    <script>
+        async function startDetection() {
+            const video = document.getElementById('video');
+            const detectionsContainer = document.getElementById('detections');
+
+            try {
+                // Access the user's camera
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+                await video.play(); // Ensure video is playing
+
+                // Load the COCO-SSD model
+                const model = await cocoSsd.load();
+
+                // Perform object detection
+                const predictions = await model.detect(video);
+                const detectedObjects = predictions.map(prediction => `
+                    ${prediction.class} (${Math.round(prediction.score * 100)}%)
+                `).join('<br>');
+                detectionsContainer.innerHTML = detectedObjects;
+                console.log('Detected Objects:', predictions);
+            } catch (error) {
+                console.error('Error accessing camera or performing object detection:', error);
+            }
+        }
+    </script>
+</body>
+</html>
