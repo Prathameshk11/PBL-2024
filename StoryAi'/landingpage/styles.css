@@ -1,0 +1,130 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative; /* Ensure positioning context */
+  background-color: black; /* Changed background color to black */
+}
+iframe {
+  width: 130%;
+  height: 100%;
+}
+.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-left: 20px; /* Adjusted padding for left alignment */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+.navigation button {
+  margin-right: 10px; /* Increased margin between buttons */
+  padding: 25px 40px; /* Increased padding for bigger button */
+  color: white;
+  background-color: transparent; /* Transparent background */
+  border: 2px dotted; /* Dotted border */
+  cursor: pointer;
+  outline: none;
+  font-size: 24px; /* Increased font size */
+  font-family: 'Comic Sans MS', cursive; /* Fun font family */
+  animation: bounceIn 1s ease; /* Animation effect */
+}
+@keyframes bounceIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.navigation button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Lighter color on hover */
+}
+.generate-button {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  position: absolute;
+  top: 79%; /* Adjust top position */
+  left: 66%; /* Adjust left position */
+  transform: translate(-50%, -50%);
+  width: 203px; /* Adjust width */
+  height: 62px; /* Adjust height */
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);/* Button background color */
+  color: #fcf7f7; /* Text color */
+
+  border: rgb(80, 217, 255); /* Remove border */
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  z-index: 9999;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+
+.generate-button:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.1); /* Lighter color on hover */
+}
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+.quote {
+  position: absolute;
+  top: 42%;
+  left: 3%; /* Positioning it below the button and moved down by 100px */
+   /* Aligning with the button */
+  color: rgb(249, 181, 212);
+  font-size: 23px; /* Reduced font size by 4 */
+  font-family: "Poppins", sans-serif;/* Change font to Secular */
+  font-weight: 400;
+}
+.info-box {
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  width: 17%;
+  border-left: 2px solid white;
+  padding: 20px;
+  z-index: 2; /* Ensure it's layered above the spline */
+}
+.info-box h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  color: rgb(186, 107, 243);
+}
+.info-box p {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.centered-text {
+  position: absolute;
+  top: 22%;
+  left: 23%;
+  transform: translateX(-50%);
+  font-family: "Josefin Sans", sans-serif;  
+  font-size: 120px;
+  font-weight: bolder;
+  color: #e20892;
+  z-index: 2;
+}
+.josefin-sans-<uniquifier> {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}

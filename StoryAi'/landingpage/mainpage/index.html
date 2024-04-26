@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaleCraft</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <h1 class="title">TaleCraft.ai</h1>
+
+  </header>
+
+
+  <main>
+    <div class="container">
+      <section class="form-section">
+        <div class="form-container">
+          <form id="storyForm">
+            <div class="form-group">
+              <label for="storyPrompt" class="form-label">Story Prompt:</label>
+              <div class="story-prompt">
+                <textarea name="storyPrompt" id="storyPrompt" rows="6" class="story-prompt-textarea"
+                  placeholder="Your amazing adventure begins..."></textarea>
+                <button id="microphoneButton" class="microphone-button" onclick="toggleRecording()">
+                  <i class="fa fa-microphone text-xl text-white"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="art-styles">
+              <h2 class="Header-Art-Style">Art Styles :</h2>
+              <div class="art-style" data-style="Cartoon">
+                <img
+                  src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88e06d60-2172-414a-804f-55c460dc7b86/dha6mxb-24c11a17-03bf-45af-acb9-62262a89768d.jpg/v1/fit/w_600,h_1024,q_70,strp/2_d_cartoon_of_man_by_excaliburr1212_dha6mxb-300w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzg4ZTA2ZDYwLTIxNzItNDE0YS04MDRmLTU1YzQ2MGRjN2I4NlwvZGhhNm14Yi0yNGMxMWExNy0wM2JmLTQ1YWYtYWNiOS02MjI2MmE4OTc2OGQuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.kodtTKGgAjiZyAkXynOq7iGjXYWGCNbuf6dWOUNIIOQ"
+                  alt="Preview of Cartoon style">
+                <span class="art-style-name">Cartoon</span>
+              </div>
+              <div class="art-style" data-style="Realistic">
+                <img
+                  src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88e06d60-2172-414a-804f-55c460dc7b86/dha6n7t-1ab4a8a8-a832-4a87-8cb1-143def64e0a9.jpg/v1/fit/w_600,h_1024,q_70,strp/realistic_image_of_man_by_excaliburr1212_dha6n7t-300w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzg4ZTA2ZDYwLTIxNzItNDE0YS04MDRmLTU1YzQ2MGRjN2I4NlwvZGhhNm43dC0xYWI0YThhOC1hODMyLTRhODctOGNiMS0xNDNkZWY2NGUwYTkuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.0aeXdML-BTHatZ7lXRY6Pzk20psyOrzABwE-XmUI2w8"
+                  alt="Preview of Realistic style">
+                <span class="art-style-name">Realistic</span>
+              </div>
+              <div class="art-style" data-style="Fantasy">
+                <img
+                  src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88e06d60-2172-414a-804f-55c460dc7b86/dha6ncv-6d062ab5-8b64-4a51-add5-302d668f4ddd.jpg/v1/fit/w_600,h_1024,q_70,strp/fantasy_image_of_man__by_excaliburr1212_dha6ncv-300w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzg4ZTA2ZDYwLTIxNzItNDE0YS04MDRmLTU1YzQ2MGRjN2I4NlwvZGhhNm5jdi02ZDA2MmFiNS04YjY0LTRhNTEtYWRkNS0zMDJkNjY4ZjRkZGQuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.KSjfvKDMB2VlPjBr_HLix1zS-jO400SRL4BaggJ3QnQ"
+                  alt="Preview of Fantasy style">
+                <span class="art-style-name">Fantasy</span>
+              </div>
+              <div class="art-style" data-style="Sketch">
+                <img
+                  src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/88e06d60-2172-414a-804f-55c460dc7b86/dhai9y3-cd335f58-ba84-455b-a83f-5eea795b75d9.jpg/v1/fit/w_600,h_1024,q_70,strp/sketch_of_a_man_by_excaliburr1212_dhai9y3-300w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzg4ZTA2ZDYwLTIxNzItNDE0YS04MDRmLTU1YzQ2MGRjN2I4NlwvZGhhaTl5My1jZDMzNWY1OC1iYTg0LTQ1NWItYTgzZi01ZWVhNzk1Yjc1ZDkuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.c1ZAmJie28B9fRwqLzeGWt91AJXMjlXVkbzmQRbaneI"
+                  alt="Preview of Sketch style">
+                <span class="art-style-name">Sketch</span>
+              </div>
+            </div>
+
+            <!-- Existing code... -->
+            <div class="generate-button-container">
+              <button type="submit" class="generate-button">Generate Image</button>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+      <section class="illustrations-section">
+        <div class="illustrations-container">
+          <h2 class="illustrations-title">Witness your story illustrations:</h2>
+          <div class="illustration">
+            <img src="bi.jpg" alt="AI-generated story illustration in selected art style">
+            <button class="download-button" onclick="downloadImage()">Download</button>
+          </div>
+
+          <!-- Navigation buttons -->
+          <div class="navigation-buttons">
+            <button id="previousButton">Previous</button>
+            <button id="nextButton">Next</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-text">Share your unique tale with friends and inspire creativity!</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

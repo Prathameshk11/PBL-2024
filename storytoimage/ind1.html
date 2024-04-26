@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailCraft</title>
+  <style>
+    
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative; /* Ensure positioning context */
+      background-color: black; /* Changed background color to black */
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+    .navigation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding-left: 20px; /* Adjusted padding for left alignment */
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    }
+    .navigation button {
+      margin-right: 10px; /* Increased margin between buttons */
+      padding: 25px 40px; /* Increased padding for bigger button */
+      color: white;
+      background-color: transparent; /* Transparent background */
+      border: 2px dotted; /* Dotted border */
+      cursor: pointer;
+      outline: none;
+      font-size: 24px; /* Increased font size */
+      font-family: 'Comic Sans MS', cursive; /* Fun font family */
+      animation: bounceIn 1s ease; /* Animation effect */
+    }
+    @keyframes bounceIn {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    .navigation button:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Lighter color on hover */
+    }
+    .overlay-text {
+      position: absolute;
+      top: 84%; /* Adjusted to be 92% from the top */
+      left: 5%; /* Adjusted to be 5% from the left */
+      color: white;
+      font-size: 12px;
+      font-family: Arial, sans-serif;
+      max-width: 75%; /* Limiting the width to 75% of the container */
+      word-wrap: break-word; /* Allowing words to break into multiple lines */
+      white-space: nowrap; /* Preventing text from wrapping in the middle of words */
+      overflow: hidden; /* Hiding any overflow text */
+      text-overflow: ellipsis; /* Displaying an ellipsis (...) when text overflows */
+      z-index: 1; /* Ensure text is layered above the spline */
+      text-align: left; /* Aligning text to the left */
+    }
+    .generate-button {
+      position: absolute;
+      top: calc(30% - 100px); /* Positioning it above the text */
+      left: 10%; /* Aligning with the text */
+      padding: 15px 30px; /* Reduced padding */
+      color: white;
+      background-color: transparent; /* Transparent background */
+      border: 2px solid white; /* White border */
+      border-radius: 20px; /* Rounded corners */
+      cursor: pointer;
+      outline: none;
+      font-size: 24px; /* Increased font size */
+      font-family: 'Comic Sans MS', cursive; /* Fun font family */
+      animation: bounceIn 1s ease; /* Animation effect */
+      animation: rainbowBorder 1s infinite alternate; /* Rainbow border animation */
+    }
+    .generate-button:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Lighter color on hover */
+    }
+    @keyframes rainbowBorder {
+      0% {
+        border-color: red;
+      }
+      16% {
+        border-color: orange;
+      }
+      33% {
+        border-color: yellow;
+      }
+      50% {
+        border-color: green;
+      }
+      66% {
+        border-color: blue;
+      }
+      83% {
+        border-color: indigo;
+      }
+      100% {
+        border-color: violet;
+      }
+    }
+    .quote {
+      position: absolute;
+      top: calc(30% - 60px + 100px); /* Positioning it below the button and moved down by 100px */
+      left: 10%; /* Aligning with the button */
+      color: white;
+      font-size: 23px; /* Reduced font size by 4 */
+      font-style: italic;
+      font-family: 'Secular', sans-serif; /* Change font to Secular */
+    }
+    .info-box {
+      position: absolute;
+      top: 10%;
+      left: 80%;
+      width: 17%;
+      border-left: 2px solid white;
+      padding: 20px;
+      z-index: 2; /* Ensure it's layered above the spline */
+    }
+    .info-box h1 {
+      font-family: 'Secular', sans-serif;
+      font-size: 28px;
+      color: white;
+    }
+    .info-box p {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      color: white;
+    }
+    
+    .centered-text {
+      position: absolute;
+      top: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "Monotype Corsiva", cursive;
+      font-size: 86px;
+      color: rgb(175, 143, 143);
+      z-index: 2;
+      .navigation button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Lighter color on hover */
+}
+.generate-button {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  position: absolute;
+  top: 79%; /* Adjust top position */
+  left: 66%; /* Adjust left position */
+  transform: translate(-50%, -50%);
+  width: 203px; /* Adjust width */
+  height: 62px; /* Adjust height */
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);/* Button background color */
+  color: #fcf7f7; /* Text color */
+
+  border: rgb(80, 217, 255); /* Remove border */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  z-index: 9999;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+  </style>
+  
+</head>
+<body>
+    <div class="centered-text">TaleCraft.ai</div>
+  <iframe src='https://my.spline.design/robotfollowcursorforlandingpage-1b8b67d83461caceea01915d5199bcc9/' frameborder='0' width='100%' height='100%'></iframe>
+  <button class="generate-button" onclick="generateImage()">Generate Image</button>
+  <div class="overlay-text" id="overlayText"></div>
+  <div class="quote" id="quote"></div>
+  <div class="info-box">
+    <h1>How It Works?</h1>
+    <p>We take input in forms of text and Voice. The speech is converted to text. When you fell satisfied with the 
+        prompt.. you press the generate button and then let us do the magic for you :D
+    </p>
+    <h1>Should I be concerned about my audio? </h1>
+    <p>Your voice is not recorded by us, there is nothing to worry about. It is not stored in the database</p>
+  </div>
+
+  <script>
+    const textVariants = [
+      "Arial, sans-serif",
+      "'Comic Sans MS', cursive",
+      "'Courier New', monospace",
+      "Georgia, serif",
+      "'Lucida Console', Monaco, monospace",
+      "'Times New Roman', Times, serif",
+      "'Trebuchet MS', sans-serif",
+      "'Verdana', Geneva, sans-serif"
+    ];
+
+    function generateImage() {
+      
+      window.location.href = 'example.html';
+    }
+
+    function changeTextAndFont() {
+      const newText = generateRandomText();
+      const font = generateRandomFont();
+      const color = generateRandomColor();
+      document.getElementById("overlayText").innerHTML = `<p style="font-family: ${font}; color: ${color}; font-size: 9px;">Todays Motivation<br>${newText}</p>`;
+
+    }
+
+    function generateRandomText() {
+      const texts = [
+        "Hello, World!",
+        "Welcome to the party!",
+        "Keep calm and carry on.",
+        "The sky is the limit!",
+        "Coding is fun!",
+        "Stay positive!",
+        "Let your dreams be your wings.",
+        "Just keep swimming!",
+        "Hakuna Matata!"
+      ];
+      const randomIndex = Math.floor(Math.random() * texts.length);
+      return texts[randomIndex];
+    }
+
+    function generateRandomFont() {
+      const randomIndex = Math.floor(Math.random() * textVariants.length);
+      return textVariants[randomIndex];
+    }
+
+    function generateRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    setInterval(changeTextAndFont, 3000);
+
+    const quoteElement = document.getElementById('quote');
+    const quoteText = `CANT WAIT TO TRY IT OUT?!<br>
+                        I am waiting too. Click on the<br>
+                        above button and get started now!`;
+    quoteElement.innerHTML = ''; // Clearing original text
+
+    let i = 0;
+    function typeWriter() {
+      if (i < quoteText.length) {
+        if (quoteText.charAt(i) === '<') {
+          let j = i + 1;
+          while (quoteText.charAt(j) !== '>') j++;
+          quoteElement.innerHTML += quoteText.substring(i, j + 1);
+          i = j + 1;
+        } else {
+          quoteElement.innerHTML += quoteText.charAt(i);
+          i++;
+        }
+        setTimeout(typeWriter, 50); // Speed of typewriter effect (50 milliseconds)
+      }
+    }
+
+    typeWriter();
+  </script>
+</body>
+</html>
