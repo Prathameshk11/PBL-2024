@@ -61,7 +61,6 @@ document.getElementById('storyForm').addEventListener('submit', function (event)
 });
 
 async function generateImage() {
-  const story = document.getElementById('storyPrompt').value;
   const selectedStyle = document.querySelector('.art-style.selected');
 
   if (!selectedStyle) {
@@ -70,45 +69,40 @@ async function generateImage() {
   }
 
   const artStyle = selectedStyle.dataset.style;
-  const path = "https://api.stability.ai/v1/generation/stable-diffusion-xl-1024-v1-0/text-to-image";
   const apiKey = "sk-WQcVxdlgsST2Va6NhqaQOHkczobZRBGOcsAd6SLIsYycyuNN"; // Replace with your Stability AI API key
+  const aspectRatio = '1:1';
+  const storyPrompt = document.getElementById('storyPrompt').value.trim(); // Get and trim the story prompt
 
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${apiKey}`
+  if (!storyPrompt) {
+    console.error('Please provide a story prompt.');
+    return;
+  }
+
+  const requestData = {
+    style_preset: artStyle,
+    aspect_ratio: aspectRatio,
+    text_prompts: [{ text: storyPrompt, weight: 1 }] // Provide a non-blank text prompt
   };
 
-  const body = {
-    steps: 40,
-    width: 1024,
-    height: 1024,
-    seed: 0,
-    cfg_scale: 5,
-    samples: 1,
-    text_prompts: [{
-      text: story,
-      weight: 1
-    }],
-    prompt_styles: [{
-      "artStyle": artStyle
-    }]
-  };
-
+  const path = "https://api.stability.ai/v1/generation/stable-diffusion-xl-1024-v1-0/text-to-image";
   try {
     const response = await fetch(path, {
       method: "POST",
-      headers: headers,
-      body: JSON.stringify(body)
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`
+      },
+      body: JSON.stringify(requestData)
     });
 
     if (!response.ok) {
       throw new Error(`Non-200 response: ${await response.text()}`);
     }
 
-    const responseJSON = await response.json();
+    const responseData = await response.json();
 
-    if (responseJSON && responseJSON.artifacts && responseJSON.artifacts[0] && responseJSON.artifacts[0].base64) {
-      const imageUrl = `data:image/png;base64,${responseJSON.artifacts[0].base64}`;
+    if (responseData && responseData.artifacts && responseData.artifacts[0] && responseData.artifacts[0].base64) {
+      const imageUrl = `data:image/png;base64,${responseData.artifacts[0].base64}`;
       displayGeneratedImage(imageUrl);
     } else {
       throw new Error("Unexpected response format");

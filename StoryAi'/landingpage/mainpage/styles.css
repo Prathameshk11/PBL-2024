@@ -252,7 +252,6 @@ h2{
     color: #000000;
     /* Dark Green */
     font-size: 36px;
-    margin-bottom: 20px;
    
 }
 
@@ -271,7 +270,7 @@ h2{
 
 .illustration img {
     width: 900px;
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
